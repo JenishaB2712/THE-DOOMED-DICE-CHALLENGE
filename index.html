@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dices Game</title>
+    <style>
+        
+        .container { 
+            width: 70%; 
+            margin: auto; 
+            text-align: center; 
+        } 
+  
+
+        h1
+        {
+            text-shadow: 4px 4px 6px #232931;
+        }
+  
+        body { 
+            background-image:url("https://cdn.pixabay.com/photo/2012/04/05/01/24/dice-25637_640.png"); 
+            margin: 0; 
+        } 
+  
+        h2 { 
+            margin: 30px; 
+    
+            text-shadow: 5px 0 #232931; 
+            font-size: 4.5rem; 
+            color: #4ecca3; 
+            text-align: center; 
+        } 
+  
+        p { 
+            font-size: 2rem; 
+            color: #4ecca3; 
+            
+        } 
+  
+        img { 
+            width: 100%; 
+        } 
+  
+        .b1 {
+            background: #1e0e93;
+            
+            border-radius: 7px;
+            color: #ffff;
+            font-size: 25px;
+            padding: 16px 25px 16px 25px;
+            text-decoration: none;
+        }
+        .b2 {
+            background: #1e0e93;
+            
+            border-radius: 7px;
+            color: #ffff;
+            font-size: 25px;
+            padding: 16px 25px 16px 25px;
+            text-decoration: none;
+        }
+        .b3 {
+            background: #1e0e93;
+         
+            border-radius: 7px;
+            color: #ffff;
+            font-size: 25px;
+            padding: 16px 25px 16px 25px;
+            text-decoration: none;
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>DICES GAME</h1>
+        <h2>Let's Play</h2>
+
+        
+    </div>
+
+    <div class="container bottom">
+        
+
+        <div class="container bottom">
+            <button type="button" class="b1" onclick="openResultPage('http://127.0.0.1:5000/total_combinations')">
+                TOTAL COMBINATIONS</button>
+        </div>
+        <div class="container bottom">
+            <button type="button" class="b2" onclick="openResultPage('http://127.0.0.1:5000/distribution')">
+                DISTRIBUTION</button>
+        </div>
+        <div class="container bottom">
+            <button type="button" class="b3" onclick="openResultPage('http://127.0.0.1:5000/probability')">
+                PROBABILITY</button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        function openResultPage(url) {
+            const resultWindow1 = window.open('http://127.0.0.1:5000/total_combinations', '_blank');
+            const resultWindow2 = window.open('http://127.0.0.1:5000/distribution', '_blank');
+            const resultWindow3 = window.open('http://127.0.0.1:5000/probability', '_blank');
+            resultWindow1.onload = function () {
+                resultWindow1.postMessage({ url }, '*');
+            };
+            resultWindow2.onload = function () {
+                resultWindow2.postMessage({ url }, '*');
+            };
+            resultWindow3.onload = function () {
+                resultWindow3.postMessage({ url }, '*');
+            };
+        }
+
+        
+    </script>
+</body>
+
+</html>
